@@ -1,0 +1,22 @@
+
+    How can I clone the repository to Spyder?
+
+You need to open a system terminal, go to the directory you want to clone and do git clone your-repo-here.git, then you can open Spyder and either create a new project in the directory where you cloned your repository, or just open in the files pane the directory where you cloned the repository
+
+    How can I sync that folder and which git commands do I have to use?
+
+To sync your folder you need to use git commands, https://education.github.com/git-cheat-sheet-education.pdf, normally you will have two most use cases that are syncing with your remote repo and publishing your changes to the remote repo. This has to be done in a system terminal as well.
+
+For exploring changes: git fetch
+To sync remote changes to your local changes: git pull
+To publish your changes: Here you will need to first create a commit with a message that explains the changes you've made and then publish them,
+
+git add -A
+git commit -m "Message explaining my changes"
+git push
+
+You will start learning more commands as you start using it, it is completely normal to damage your local repository, and if that is the case please remember that you can always delete it and then clone it again. Before doing that radical change, you have to assure that you don't loose any change you were working on.
+
+Once you do any of the commands, Spyder will automatically display you your files with the changes.
+
+Hope this information is useful and happy coding!

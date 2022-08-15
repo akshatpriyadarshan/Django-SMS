@@ -287,26 +287,31 @@ def admin_add_student_view(request):
     form1 = forms.StudentUserForm()
     form2 = forms.StudentExtraForm()
     mydict = {'form1': form1, 'form2': form2}
-    if request.method == 'POST':
-        form1 = forms.StudentUserForm(request.POST)
-        form2 = forms.StudentExtraForm(request.POST)
-        if form1.is_valid() and form2.is_valid():
-            print("form is valid")
-            user = form1.save()
-            user.set_password(user.password)
-            user.save()
+    try:
+        if request.method == 'POST':
+            form1 = forms.StudentUserForm(request.POST)
+            form2 = forms.StudentExtraForm(request.POST)
+            if form1.is_valid() and form2.is_valid():
+                print("form is valid")
+                user = form1.save()
+                user.set_password(user.password)
+                user.save()
 
-            f2 = form2.save(commit=False)
-            f2.user = user
-            f2.status = True
-            f2.save()
+                f2 = form2.save(commit=False)
+                f2.user = user
+                f2.status = True
+                f2.save()
 
-            my_student_group = Group.objects.get_or_create(name='STUDENT')
-            my_student_group[0].user_set.add(user)
-        else:
-            print("form is invalid")
-        return HttpResponseRedirect('admin-student')
-    return render(request, 'school/admin_add_student.html', context=mydict)
+                my_student_group = Group.objects.get_or_create(name='STUDENT')
+                my_student_group[0].user_set.add(user)
+            else:
+                print("form is invalid")
+                print(form1.errors.as_data())
+                print(form2.errors.as_data())
+            return HttpResponseRedirect('admin-student')
+        return render(request, 'school/admin_add_student.html', context=mydict)
+    except Exception as e:
+        raise e
 
 
 @login_required(login_url='adminlogin')
@@ -344,18 +349,21 @@ def update_student_view(request, pk):
     form1 = forms.StudentUserForm(instance=user)
     form2 = forms.StudentExtraForm(instance=student)
     mydict = {'form1': form1, 'form2': form2}
-    if request.method == 'POST':
-        form1 = forms.StudentUserForm(request.POST, instance=user)
-        form2 = forms.StudentExtraForm(request.POST, instance=student)
-        print(form1)
-        if form1.is_valid() and form2.is_valid():
-            user = form1.save()
-            user.set_password(user.password)
-            user.save()
-            f2 = form2.save(commit=False)
-            f2.status = True
-            f2.save()
-            return redirect('admin-view-student')
+    try:
+        if request.method == 'POST':
+            form1 = forms.StudentUserForm(request.POST, instance=user)
+            form2 = forms.StudentExtraForm(request.POST, instance=student)
+            print(form1)
+            if form1.is_valid() and form2.is_valid():
+                user = form1.save()
+                user.set_password(user.password)
+                user.save()
+                f2 = form2.save(commit=False)
+                f2.status = True
+                f2.save()
+                return redirect('admin-view-student')
+    except Exception as e:
+        raise e
     return render(request, 'school/admin_update_student.html', context=mydict)
 
 

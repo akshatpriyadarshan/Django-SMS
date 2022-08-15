@@ -5,10 +5,10 @@
 {% block content %}
 
 <head>
-
-  <link href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
-  <script src="//netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js"></script>
-  <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+    <title>View Student</title>
+    <link href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+    <script src="//netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js"></script>
+    <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
 
   <style media="screen">
     a:link {
@@ -37,12 +37,17 @@
 
       </div>
 
-      <table class="table table-hover table-striped table-bordered" id="dev-table">
+      <table class="table table-hover table-striped table-bordered" id="dev-table" style="white-space: nowrap">
         <thead>
-
           <tr>
             <th>Name</th>
+            <th>Admission File No</th>
             <th>Class</th>
+            <th>Fathers Name</th>
+            <th>Address</th>
+            <th>Date Of Birth</th>
+            <th>Date Of Joining</th>
+            <th>Session</th>
             <th>Contact</th>
             <th>Fee</th>
             <th>Actions</th>
@@ -50,12 +55,20 @@
         </thead>
         {% for s in students %}
         <tr>
-          <td> {{s.get_name}}</td>
-          <td>{{s.cl}}</td>
-          <td>{{s.mobile}}</td>
-          <td>{{s.fee}}</td>
-          <td><a class="btn btn-primary btn-xs" href="{% url 'update-student' s.id  %}"><span class="glyphicon glyphicon-edit"></span></a>
-         <a class="btn btn-danger btn-xs" href="{% url 'delete-student-from-school' s.id  %}"><span class="glyphicon glyphicon-trash"></span></a></td>
+            <td>{{s.get_name}}</td>
+            <td>{{s.admin_file}}</td>
+            <td>{{s.cl}} </td>
+            <td>{{s.father_name}}</td>
+            <td>{{s.address}}</td>
+            <td>{{s.dob}}</td>
+            <td>{{s.date_of_joining}}</td>
+            <td>{{s.session}}</td>
+            <td>{{s.contact}}</td>
+            <td> &#8377 {{s.fee}}</td>
+            <td><a class="btn btn-primary btn-xs" href="{% url 'update-student' s.id  %}">
+                <span class="glyphicon glyphicon-edit"></span></a>
+            <a class="btn btn-danger btn-xs" href="{% url 'delete-student-from-school' s.id  %}">
+                <span class="glyphicon glyphicon-trash"></span></a></td>
 
         </tr>
 

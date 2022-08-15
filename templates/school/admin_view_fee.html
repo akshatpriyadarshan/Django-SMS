@@ -5,7 +5,7 @@
 {% block content %}
 
 <head>
-
+    <title>View Fee</title>
   <link href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
   <script src="//netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js"></script>
   <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
@@ -35,7 +35,7 @@
         <thead>
           <tr>
             <th>Student Name</th>
-            <th>Roll</th>
+            <th>Admission No</th>
             <th>Contact</th>
             <th>Dues</th>
           </tr>
@@ -43,9 +43,9 @@
         {%for f in feedetails %}
         <tr>
           <td>{{f.get_name}}</td>
-          <td>{{f.roll}}</td>
-          <td>{{f.mobile}}</td>
-          <td>{{f.fee}}</td>
+          <td>{{f.admin_file}}</td>
+          <td>{{f.contact}}</td>
+          <td> &#8377 {{f.fee}}</td>
         </tr>
         {%endfor%}
       </table>

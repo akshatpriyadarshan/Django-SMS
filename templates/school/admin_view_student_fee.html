@@ -35,7 +35,7 @@
 
     <div class="panel panel-primary">
       <div class="panel-heading">
-        <h6 class="panel-title">Student's Salary</h6>
+        <h6 class="panel-title">Student's Fee</h6>
 
       </div>
 
@@ -52,7 +52,7 @@
         {% for s in students %}
         <tr>
           <td> {{s.get_name}}</td>
-          <td>{{s.fee}}</td>
+          <td> &#8377 {{s.fee}}</td>
         </tr>
 
         {% endfor %}

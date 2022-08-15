@@ -14,13 +14,15 @@ class AdminSigupForm(forms.ModelForm):
 class StudentUserForm(forms.ModelForm):
     class Meta:
         model = User
-        fields = ['first_name', 'last_name', 'username', 'password']
+        fields = ['first_name', 'last_name']
 
 
+# for adding additional fields in student admin form
 class StudentExtraForm(forms.ModelForm):
     class Meta:
         model = models.StudentExtra
-        fields = ['roll', 'cl', 'mobile', 'fee', 'status']
+        fields = ['admin_file', 'withdrawal_file', 'tc_no', 'father_name', 'mother_name', 'occupation', 'address',
+                  'last_inst', 'dob', 'date_of_joining', 'session', 'cl', 'contact', 'fee', 'status']
 
 
 # for teacher related form

@@ -26,17 +26,13 @@
 
 </head>
 
-
-
-
-
 <div class="container">
 
   <div class="row">
 
     <div class="panel panel-primary">
       <div class="panel-heading">
-        <h6 class="panel-title">FEE OF STUDENTS</h6>
+        <h6 class="panel-title">Fee Of Students</h6>
 
       </div>
 
@@ -49,6 +45,20 @@
             <th>View Dues</th>
           </tr>
         </thead>
+        <tr>
+          <td>Nursery</td>
+          <td><a class="btn btn-danger btn-xs" href="{% url 'admin-view-fee' 'nursery'  %}"><span class="glyphicon glyphicon-eye-open"></span></a></td>
+        </tr>
+
+        <tr>
+          <td>KG-I</td>
+          <td><a class="btn btn-danger btn-xs" href="{% url 'admin-view-fee' 'kg1'  %}"><span class="glyphicon glyphicon-eye-open"></span></a></td>
+        </tr>
+
+        <tr>
+          <td>KG-II</td>
+          <td><a class="btn btn-danger btn-xs" href="{% url 'admin-view-fee' 'kg2'  %}"><span class="glyphicon glyphicon-eye-open"></span></a></td>
+        </tr>
 
         <tr>
           <td>One</td>

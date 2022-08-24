@@ -28,55 +28,49 @@
 
 
 <div class="container">
-
   <div class="row">
-
     <div class="panel panel-primary">
-      <div class="panel-heading">
-        <h6 class="panel-title">Students</h6>
+        <div class="panel-heading">
+            <h6 class="panel-title">Students</h6>
+        </div>
+        <table class="table table-hover table-striped table-bordered" id="dev-table" style="white-space: nowrap">
+            <thead>
+              <tr>
+                <th>Name</th>
+                <th>Admission File No</th>
+                <th>Class</th>
+                <th>Fathers Name</th>
+                <th>Address</th>
+                <th>Date Of Birth</th>
+                <th>Date Of Joining</th>
+                <th>Session</th>
+                <th>Contact</th>
+                <th>Fee</th>
+                <th>Actions</th>
+              </tr>
+            </thead>
+            {% for s in students %}
+            <tr>
+                <td>{{s.get_name}}</td>
+                <td>{{s.admin_file}}</td>
+                <td>{{s.cl}} </td>
+                <td>{{s.father_name}}</td>
+                <td>{{s.address}}</td>
+                <td>{{s.dob}}</td>
+                <td>{{s.date_of_joining}}</td>
+                <td>{{s.session}}</td>
+                <td>{{s.contact}}</td>
+                <td> &#8377 {{s.fee}}</td>
+                <td>
+                    <a class="btn btn-primary btn-xs" href="{% url 'update-student' s.id  %}"><span class="glyphicon glyphicon-edit"></span></a>
+                    <a class="btn btn-danger btn-xs" href="{% url 'delete-student-from-school' s.id  %}"><span class="glyphicon glyphicon-trash"></span></a>
+                </td>
+            </tr>
 
-      </div>
+            {% endfor %}
+          </table>
 
-      <table class="table table-hover table-striped table-bordered" id="dev-table" style="white-space: nowrap">
-        <thead>
-          <tr>
-            <th>Name</th>
-            <th>Admission File No</th>
-            <th>Class</th>
-            <th>Fathers Name</th>
-            <th>Address</th>
-            <th>Date Of Birth</th>
-            <th>Date Of Joining</th>
-            <th>Session</th>
-            <th>Contact</th>
-            <th>Fee</th>
-            <th>Actions</th>
-          </tr>
-        </thead>
-        {% for s in students %}
-        <tr>
-            <td>{{s.get_name}}</td>
-            <td>{{s.admin_file}}</td>
-            <td>{{s.cl}} </td>
-            <td>{{s.father_name}}</td>
-            <td>{{s.address}}</td>
-            <td>{{s.dob}}</td>
-            <td>{{s.date_of_joining}}</td>
-            <td>{{s.session}}</td>
-            <td>{{s.contact}}</td>
-            <td> &#8377 {{s.fee}}</td>
-            <td><a class="btn btn-primary btn-xs" href="{% url 'update-student' s.id  %}">
-                <span class="glyphicon glyphicon-edit"></span></a>
-            <a class="btn btn-danger btn-xs" href="{% url 'delete-student-from-school' s.id  %}">
-                <span class="glyphicon glyphicon-trash"></span></a></td>
-
-        </tr>
-
-        {% endfor %}
-      </table>
     </div>
-
-
   </div>
 </div>
 

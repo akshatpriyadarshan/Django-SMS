@@ -23,8 +23,9 @@ class TeacherExtra(models.Model):
         return self.user.first_name+" "+self.user.last_name
 
 
-classes = [('one', 'one'), ('two', 'two'), ('three', 'three'), ('four', 'four'), ('five', 'five'), ('six', 'six'),
-           ('seven', 'seven'), ('eight', 'eight'), ('nine', 'nine'), ('ten', 'ten')]
+classes = [('Nursery', 'Nursery'), ('KG-I', 'KG-I'), ('KG-II', 'KG-II'), ('One', 'One'), ('Two', 'Two'),
+           ('Three', 'Three'), ('Four', 'Four'), ('Five', 'Five'), ('Six', 'Six'), ('Seven', 'Seven'),
+           ('Eight', 'Eight'), ('Nine', 'Nine'), ('Ten', 'Ten')]
 
 
 class StudentExtra(models.Model):
